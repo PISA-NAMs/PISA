@@ -1,7 +1,7 @@
 const PISA_CONTENT = {
     hero: {
         title: "PISA",
-        subtitle: "Anonymous submission for InterSpeech 2026"
+        subtitle: "Anonymous submission for Interspeech 2026"
     },
     abstract: {
         title: "PISA (Physics-Informed Speaker-Aware Augmentation for Non-Audible Murmur to Speech Synthesis)",

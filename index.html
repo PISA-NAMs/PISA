@@ -43,186 +43,56 @@
     </div>
 
     <section id="abstract" data-aos="fade-up">
-        <h2 class="section-title">PISA (Physics-Informed Speaker-Aware Augmentation for Non-Audible Murmur to Speech
-            Synthesis)</h2>
+        <h2 class="section-title"></h2>
         <div class="abstract">
-            <p>
-                Conventional speech production relies on complex physiological mechanisms where air expelled from the
-                lungs vibrates the vocal folds, while the tongue, lips, and cheeks shape this air
-                flow into articulate sounds. This process breaks down in cases of vocal tract pathology. Beyond clinical
-                scenarios, daily situations also demand alternatives to conventional speech. These constraints have
-                motivated research into Silent Speech
-                Interfaces (SSI), which aim to capture non-acoustic physiological signals associated with speech
-                production and decode them into intelligible speech.
-                Among SSI approaches, Non-Audible Murmur (NAM) microphones offer a compelling alternative by capturing
-                tissue-conducted vibrations through a contact sensor placed behind the ear during silent articulation.
-                Unlike other methods, NAM requires no invasive attachments, bulky imaging equipment, or controlled
-                lighting, enabling a software-centric pathway for NAM-to-speech conversion.
-            </p>
+            <p></p>
         </div>
     </section>
 
     <section id="existing-methods" class="full-width-section">
-        <h2 class="section-title" data-aos="fade-up">Existing Methods</h2>
+        <h2 class="section-title" data-aos="fade-up"></h2>
         <div class="methods-grid">
-            <div class="method-card" data-aos="fade-up">
-                <h3>Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models</h3>
-                <img src="./assets/img/existing_methods_towards_improving_nam_to_speech.png" alt="Existing approach 1">
-                <p>Existing approaches for augmentation treat NAMs as devoid of any speaker information</p>
-            </div>
-            <div class="method-card" data-aos="fade-up">
-                <h3>Aligning NAMs & speech</h3>
-                <img src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/existing_method_2_1769848837509.png"
-                    alt="Data Flow System">
-                <p>Dynamic Time Warping (DTW) is a common approach to align NAMs and speech in time</p>
-            </div>
-            <div class="method-card" data-aos="fade-up">
-                <h3>NAM-to-Speech Conversion with Multitask-Enhanced Autoregressive Models</h3>
-                <img src="./assets/img/existing_methods_nam_to_speech_conversion.png" alt="Algorithm Flowchart">
-                <p>In this work, we extract HuBERT units from NAMs and train a vocoder to generate NAMs using HuBERT
-                    units.</p>
-            </div>
+            <!-- Dynamically populated from content.js -->
         </div>
     </section>
 
     <section id="problems">
-        <h2 class="section-title" data-aos="fade-up">Problems in existing approaches</h2>
-
-        <div class="approach-stage" data-aos="fade-up">
-            <div class="approach-text">
-                <h3>Loss of speaker-specific information</h3>
-                <p>Some properties of NAMs such as High Frequency Energy Ratio & RMS Energy demonstrate similar values
-                    for different speakers. In the first stage, we generate NAMs that follow these constraints while
-                    preserving contents from clean speech.</p>
-            </div>
-            <div class="approach-image">
-                <img src="./assets/img/our_approach_stage_1.png" alt="Universal NAMs generation">
-            </div>
-        </div>
-
-        <div class="approach-stage" data-aos="fade-up">
-            <div class="approach-text">
-                <h3>No guarantees of synthetic data following physical properties of real NAMs</h3>
-                <p>Once we have the universal NAMs, we use a small diffusion transformer conditioned on speaker features
-                    to generate NAMs that follow speaker-specific features such as spectral flatness, pitch and temporal
-                    jitter.</p>
-            </div>
-            <div class="approach-image">
-                <img src="./assets/img/our_approach_stage_2.png" alt="Speaker-conditioned generation">
-            </div>
-        </div>
+        <h2 class="section-title" data-aos="fade-up"></h2>
+        <!-- Dynamically populated from content.js -->
     </section>
 
     <section id="our-approach">
-        <h2 class="section-title" data-aos="fade-up">Our Approach</h2>
-
-        <div class="approach-stage" data-aos="fade-up">
-            <div class="approach-text">
-                <h3>Stage 1: Universal NAM generation</h3>
-                <p>Some properties of NAMs such as High Frequency Energy Ratio & RMS Energy demonstrate similar values
-                    for different speakers. In the first stage, we generate NAMs that follow these constraints while
-                    preserving contents from clean speech.</p>
-            </div>
-            <div class="approach-image">
-                <img src="./assets/img/our_approach_stage_1.png" alt="Universal NAMs generation">
-            </div>
-        </div>
-
-        <div class="approach-stage" data-aos="fade-up">
-            <div class="approach-text">
-                <h3>Stage 2: Speaker-modulated Generations</h3>
-                <p>Once we have the universal NAMs, we use a small diffusion transformer conditioned on speaker features
-                    to generate NAMs that follow speaker-specific features such as spectral flatness, pitch and temporal
-                    jitter.</p>
-            </div>
-            <div class="approach-image">
-                <img src="./assets/img/our_approach_stage_2.png" alt="Speaker-conditioned generation">
-            </div>
-        </div>
+        <h2 class="section-title" data-aos="fade-up"></h2>
+        <!-- Dynamically populated from content.js -->
     </section>
 
     <section id="model-architecture" class="full-width-section">
-        <h2 class="section-title" data-aos="fade-up">Model Architecture</h2>
+        <h2 class="section-title" data-aos="fade-up"></h2>
+        <p class="section-intro"></p>
         <div class="dual-subsection-container" data-aos="fade-up">
-            <div class="subsection">
-                <h3>Encoder-Decoder Flow</h3>
-                <p>PISA utilizes a sophisticated transformer-based encoder-decoder architecture specifically optimized
-                    for physiological signal processing. The encoder captures subtle tissue-conducted vibrations, while
-                    the decoder synthesizes high-fidelity mel-spectrograms through an iterative denoising process.</p>
-                <img src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/architecture_illustration_pisa_1769940215499.png"
-                    alt="Architecture Flow" class="subsection-img">
-            </div>
-            <div class="subsection-separator"></div>
-            <div class="subsection">
-                <h3>Cross-Modal Attention</h3>
-                <p>To ensure alignment between NAM vibrations and linguistic content, PISA incorporates cross-modal
-                    attention blocks. These blocks dynamically weight features from both phonetic priors and
-                    acoustic-tissue signals, ensuring intelligible and natural speech reconstruction even in challenging
-                    capture conditions.</p>
-                <div class="placeholder-diagram">
-                    <p>[Detailed Attention Mechanism Diagram]</p>
-                </div>
-            </div>
+            <!-- Dynamically populated from content.js -->
         </div>
     </section>
 
     <section id="training-paradigm" class="full-width-section">
-        <h2 class="section-title" data-aos="fade-up">Training Paradigm</h2>
+        <h2 class="section-title" data-aos="fade-up"></h2>
+        <p class="section-intro"></p>
         <div class="dual-subsection-container" data-aos="fade-up">
-            <div class="subsection">
-                <h3>Objective Functions</h3>
-                <p>Our optimization framework combines multi-scale spectral convergence loss with adversarial penalties.
-                    This dual-objective approach ensures that the model preserves global acoustic structures while
-                    refining fine-grained temporal details of the reconstructed speech.</p>
-                <img src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/training_paradigm_pisa_1769940229976.png"
-                    alt="Optimization Flow" class="subsection-img">
-            </div>
-            <div class="subsection-separator"></div>
-            <div class="subsection">
-                <h3>Strategy: Curriculum Denoising</h3>
-                <p>Training follows a curriculum learning strategy, gradually increasing the noise levels and linguistic
-                    complexity. This ensures stable convergence and allows the diffusion model to learn robust mappings
-                    from degraded NAM inputs to clean acoustic space across various speaker profiles.</p>
-                <div class="placeholder-diagram">
-                    <p>[Curriculum Learning Visualization]</p>
-                </div>
-            </div>
+            <!-- Dynamically populated from content.js -->
         </div>
     </section>
 
     <section id="results" class="full-width-section">
-        <h2 class="section-title" data-aos="fade-up">Results & Validation</h2>
+        <h2 class="section-title" data-aos="fade-up"></h2>
 
         <div class="results-benchmarks" data-aos="fade-up">
-            <h3>Quantitative Benchmarks</h3>
+            <h3></h3>
             <table class="benchmark-table">
                 <thead>
-                    <tr>
-                        <th>Model Architecture</th>
-                        <th>WER (%) ↓</th>
-                        <th>MOS ↑</th>
-                        <th>STOI ↑</th>
-                    </tr>
+                    <!-- Dynamically populated -->
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Baseline (Context-only)</td>
-                        <td>42.3</td>
-                        <td>2.1</td>
-                        <td>0.45</td>
-                    </tr>
-                    <tr>
-                        <td>Traditional GAN</td>
-                        <td>31.5</td>
-                        <td>3.4</td>
-                        <td>0.68</td>
-                    </tr>
-                    <tr class="highlight-row">
-                        <td><strong>PISA (Our Model)</strong></td>
-                        <td><strong>12.8</strong></td>
-                        <td><strong>4.7</strong></td>
-                        <td><strong>0.89</strong></td>
-                    </tr>
+                    <!-- Dynamically populated -->
                 </tbody>
             </table>
         </div>
@@ -232,93 +102,10 @@
         </div>
 
         <div class="examples-gallery" data-aos="fade-up">
-            <h3>Qualitative Spectrogram Comparisons</h3>
-
-            <div class="example-item">
-                <h4>Example 1: Quiet Laboratory Environment</h4>
-                <div class="spectrogram-grid">
-                    <div class="spec-card">
-                        <img src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_ground_truth_1769950718072.png"
-                            alt="Ground Truth">
-                        <span>Ground Truth</span>
-                    </div>
-                    <div class="spec-card">
-                        <img src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_baseline_low_quality_1769950737817.png"
-                            alt="Baseline Context">
-                        <span>Baseline</span>
-                    </div>
-                    <div class="spec-card">
-                        <img src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_baseline_v2_mid_quality_1769950777159.png"
-                            alt="Traditional GAN">
-                        <span>Trad. GAN</span>
-                    </div>
-                    <div class="spec-card highlighting">
-                        <img src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_pisa_prediction_1769950759309.png"
-                            alt="PISA Prediction">
-                        <span>PISA (Ours)</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="example-item">
-                <h4>Example 2: Noisy Urban Setting (50dB Noise)</h4>
-                <div class="spectrogram-grid">
-                    <div class="spec-card"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_ground_truth_1769950718072.png"
-                            alt="Ground Truth"><span>GT</span></div>
-                    <div class="spec-card"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_baseline_low_quality_1769950737817.png"
-                            alt="Baseline"><span>Baseline</span></div>
-                    <div class="spec-card"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_baseline_v2_mid_quality_1769950777159.png"
-                            alt="GAN"><span>GAN</span></div>
-                    <div class="spec-card highlighting"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_pisa_prediction_1769950759309.png"
-                            alt="PISA"><span>PISA</span></div>
-                </div>
-            </div>
-
-            <div class="example-item">
-                <h4>Example 3: Whisper-state Reconstruction</h4>
-                <div class="spectrogram-grid">
-                    <div class="spec-card"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_ground_truth_1769950718072.png"
-                            alt="Ground Truth"><span>GT</span></div>
-                    <div class="spec-card"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_baseline_low_quality_1769950737817.png"
-                            alt="Baseline"><span>Baseline</span></div>
-                    <div class="spec-card"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_baseline_v2_mid_quality_1769950777159.png"
-                            alt="GAN"><span>GAN</span></div>
-                    <div class="spec-card highlighting"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_pisa_prediction_1769950759309.png"
-                            alt="PISA"><span>PISA</span></div>
-                </div>
-            </div>
-
-            <div class="example-item">
-                <h4>Example 4: fast-paced Speech Dynamics</h4>
-                <div class="spectrogram-grid">
-                    <div class="spec-card"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_ground_truth_1769950718072.png"
-                            alt="Ground Truth"><span>GT</span></div>
-                    <div class="spec-card"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_baseline_low_quality_1769950737817.png"
-                            alt="Baseline"><span>Baseline</span></div>
-                    <div class="spec-card"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_baseline_v2_mid_quality_1769950777159.png"
-                            alt="GAN"><span>GAN</span></div>
-                    <div class="spec-card highlighting"><img
-                            src="C:/Users/yash7/.gemini/antigravity/brain/91d13583-6da0-44e4-a179-00be573cec40/spectrogram_pisa_prediction_1769950759309.png"
-                            alt="PISA"><span>PISA</span></div>
-                </div>
-            </div>
+            <h3></h3>
+            <!-- Dynamically populated -->
         </div>
     </section>
-    <!-- 
-    <footer>
-        <p>&copy; 2026 PISA Research Team. All rights reserved.</p>
-    </footer> -->
 
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
