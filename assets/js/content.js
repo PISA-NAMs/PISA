@@ -109,7 +109,7 @@ const PISA_CONTENT = {
                         epochs: [11, 60],
                         anneal: [11, 50],
                         description: "Enforcing physical properties of NAMs",
-                        tooltip: "Ensures the generated signal follows the physical properties typical of NAMs."
+                        tooltip: "Ensures the generated signal follows the physical properties typical of NAMs. Weights are linearly increased from 0 to 1 during annealing period."
                     }
                 ]
             },
@@ -135,7 +135,7 @@ const PISA_CONTENT = {
                         epochs: [71, 150],
                         anneal: [71, 111],
                         description: "Enforcing speaker-specific acoustics",
-                        tooltip: "Optimizes for speaker-specific distributional fidelity metrics like Spectral Centroid and Temporal Jitter."
+                        tooltip: "Optimizes for speaker-specific distributional fidelity metrics like Spectral Centroid and Temporal Jitter. Weights are linearly increased from 0 to 1 during annealing period."
                     }
                 ],
                 note: "Universal Encoder training persists from Stage 1."
@@ -214,6 +214,24 @@ const PISA_CONTENT = {
                         { label: "Baseline", image: "./assets/img/example_1_baseline.png" },
                         { label: "PISA (Universal)", image: "./assets/img/example_1_gen_univ.png" },
                         { label: "PISA (Speaker-Modulated)", image: "./assets/img/example_1_gen_spk.png", highlight: true }
+                    ]
+                },
+                {
+                    title: "Example 2",
+                    specs: [
+                        { label: "Ground Truth", image: "./assets/img/example_2_gt.png" },
+                        { label: "Baseline", image: "./assets/img/example_2_baseline.png" },
+                        { label: "PISA (Universal)", image: "./assets/img/example_2_gen_univ.png" },
+                        { label: "PISA (Speaker-Modulated)", image: "./assets/img/example_2_gen_spk.png", highlight: true }
+                    ]
+                },
+                {
+                    title: "Example 3",
+                    specs: [
+                        { label: "Ground Truth", image: "./assets/img/example_3_gt.png" },
+                        { label: "Baseline", image: "./assets/img/example_3_baseline.png" },
+                        { label: "PISA (Universal)", image: "./assets/img/example_3_gen_univ.png" },
+                        { label: "PISA (Speaker-Modulated)", image: "./assets/img/example_3_gen_spk.png", highlight: true }
                     ]
                 },
             ]
