@@ -28,21 +28,32 @@ body {
   position: sticky;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-light);
-  padding: 1rem 2rem;
+  padding: 0.75rem 2rem;
   z-index: 1000;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0.25rem;
 }
 
 .topbar h1 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   color: var(--primary-color);
+  line-height: 1;
+}
+
+.hero-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 section {
@@ -338,7 +349,8 @@ section {
   background: var(--bg-light);
   border-radius: 6px;
   position: relative;
-  overflow: visible; /* Allow tooltips to be visible */
+  overflow: visible;
+  /* Allow tooltips to be visible */
   border: 1px solid var(--border-light);
 }
 
@@ -529,8 +541,34 @@ section {
   border-bottom: 2px solid var(--primary-color) !important;
 }
 
+.parameters-following {
+  margin-top: 6rem;
+  text-align: center;
+}
+
+.parameters-following h3 {
+  font-size: 1.75rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.large-plot-container {
+  margin-top: 2rem;
+  background: var(--bg-white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-light);
+}
+
+.large-plot-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
 .examples-gallery {
-  margin-top: 4rem;
+  margin-top: 6rem;
 }
 
 .example-item {

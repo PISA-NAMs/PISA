@@ -83,7 +83,9 @@ function renderContent() {
 
     // 1. Hero / Header
     const titleHeader = document.querySelector('.topbar h1');
+    const subtitleHeader = document.querySelector('.topbar .hero-subtitle');
     if (titleHeader) titleHeader.textContent = data.hero.title;
+    if (subtitleHeader) subtitleHeader.textContent = data.hero.subtitle;
 
     // 2. Abstract
     const abstractTitle = document.querySelector('#abstract .section-title');
@@ -215,17 +217,29 @@ function renderContent() {
         }
     }
 
+    // Parameters Following Plot
+    const paramsDiv = document.querySelector('.parameters-following');
+    if (paramsDiv && data.results.parameters) {
+        paramsDiv.innerHTML = `
+            <h3>${data.results.parameters.title}</h3>
+            <p class="table-subtitle">${data.results.parameters.subtitle}</p>
+            <div class="large-plot-container">
+                <img src="${data.results.parameters.image}" alt="${data.results.parameters.title}">
+            </div>
+        `;
+    }
+
     // Examples Gallery
     const galleryDiv = document.querySelector('.examples-gallery');
-    if (galleryDiv) {
+    if (galleryDiv && data.results.qualitative) {
         const h3 = galleryDiv.querySelector('h3');
-        if (h3) h3.textContent = data.results.examples.title;
+        if (h3) h3.textContent = data.results.qualitative.title;
 
         // Clear existing items
         const existingItems = galleryDiv.querySelectorAll('.example-item');
         existingItems.forEach(item => item.remove());
 
-        data.results.examples.items.forEach(item => {
+        data.results.qualitative.items.forEach(item => {
             const itemDiv = document.createElement('div');
             itemDiv.className = 'example-item';
             itemDiv.innerHTML = `

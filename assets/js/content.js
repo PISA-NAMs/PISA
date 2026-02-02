@@ -1,7 +1,7 @@
 const PISA_CONTENT = {
     hero: {
         title: "PISA",
-        subtitle: "Physics-Informed Speaker-Aware Augmentation for Non-Audible Murmur to Speech Synthesis"
+        subtitle: "Anonymous submission for InterSpeech 2026"
     },
     abstract: {
         title: "PISA (Physics-Informed Speaker-Aware Augmentation for Non-Audible Murmur to Speech Synthesis)",
@@ -63,12 +63,12 @@ const PISA_CONTENT = {
         subsections: [
             {
                 title: "Speaker-Invariant Generator",
-                description: "In this stage, we train the model to generate speaker-invariant NAMs.",
+                description: "In this stage, we train the model to generate speaker-invariant NAMs. An 8-layer CNN-based module is used as the generator in this stage.",
                 image: "./assets/img/our_approach_stage_1.png"
             },
             {
                 title: "Speaker-Modulated Generator",
-                description: "In this stage, we train the model to generate speaker-specific NAMs.",
+                description: "In this stage, we train the model to generate speaker-specific NAMs. We use 2 DiT blocks in this stage. The DiT blocks are conditioned on the speaker specific parameters.",
                 image: "./assets/img/our_approach_stage_2.png"
             }
         ]
@@ -90,26 +90,26 @@ const PISA_CONTENT = {
                         name: "Spectral Reconstruction",
                         epochs: [1, 60],
                         description: "Learning base speech structure",
-                        tooltip: "Combines L1 and Multi-scale Spectral loss to ensure structural fidelity in the generated mel-spectrograms."
+                        tooltip: "Multi-scale Spectral loss to ensure structural fidelity in the generated mel-spectrograms."
                     },
                     {
                         name: "Gradient Reversal",
                         epochs: [1, 60],
                         description: "Stripping speaker-specific identity",
-                        tooltip: "Uses a GRL layer to maximize speaker classifier error, ensuring content representations are speaker-invariant."
+                        tooltip: "We add a CNN-based regression head to predict values for speaker-specific parameters such as spectral centroid, pitch and spectral flatness. Uses a GRL layer to maximize the regression error, ensuring content representations are speaker-invariant."
                     },
                     {
                         name: "Adversarial Training",
                         epochs: [11, 60],
                         description: "Enhancing spectrogram realism",
-                        tooltip: "A LSGAN-based discriminator distinguishes between real real-NAM distributions and synthetic generations."
+                        tooltip: "A GAN-based discriminator distinguishes between real real-NAM distributions and synthetic generations. This helps the generator model finer details in the spectrograms."
                     },
                     {
                         name: "Physics Constraints",
                         epochs: [11, 60],
                         anneal: [11, 50],
-                        description: "Enforcing tissue-conduction rules",
-                        tooltip: "Ensures the generated signal follows the high-frequency attenuation curve typical of non-audible murmur."
+                        description: "Enforcing physical properties of NAMs",
+                        tooltip: "Ensures the generated signal follows the physical properties typical of NAMs."
                     }
                 ]
             },
@@ -122,7 +122,7 @@ const PISA_CONTENT = {
                         name: "Spectral Refinement",
                         epochs: [61, 150],
                         description: "Injecting high-fidelity details",
-                        tooltip: "Focuses on high-frequency residuals to reconstruct speaker-specific harmonics lost in the universal stage."
+                        tooltip: "Multi-scale Spectral loss to ensure structural fidelity in the generated mel-spectrograms."
                     },
                     {
                         name: "Adversarial Modulation",
@@ -204,7 +204,7 @@ const PISA_CONTENT = {
                 }
             ]
         },
-        examples: {
+        qualitative: {
             title: "Qualitative Spectrogram Comparisons",
             items: [
                 {
@@ -217,6 +217,11 @@ const PISA_CONTENT = {
                     ]
                 },
             ]
+        },
+        parameters: {
+            title: "Speaker Parameters Following",
+            subtitle: "Comparing acoustic parameter distributions for generations from stage 1 (Universal) and stage 2 (Speaker-Modulated) modules against the ground truth real-NAMs.",
+            image: "./assets/img/speaker_params_following_demonstration.png"
         }
     }
 };
