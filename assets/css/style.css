@@ -656,7 +656,7 @@ section {
 #side-nav .nav-link span {
   opacity: 0;
   transform: translateX(10px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Indicators */
@@ -668,7 +668,7 @@ section {
   height: 2px;
   background: var(--border-light);
   border-radius: 1px;
-  transition: all 0.3s ease;
+  transition: all 0.6s ease;
 }
 
 #side-nav.is-scrolling .nav-link span {
