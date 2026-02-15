@@ -251,9 +251,29 @@ const PISA_CONTENT = {
                     prefix: "s01_neilnam_IITM_909"
                 },
                 {
+                    speaker: "Speaker 01",
+                    text: "They were talking together near the stall where the elephant sleeps.",
+                    prefix: "s01_neilnam_IITM_2216"
+                },
+                {
                     speaker: "Speaker 02",
                     text: "Only to add people to its tail.",
                     prefix: "s02_nehanam_IITM_4569"
+                },
+                {
+                    speaker: "Speaker 02",
+                    text: "The sea has destroyed the eggs of the peasants pair.",
+                    prefix: "s02_nehanam_IITM_4752"
+                },
+                {
+                    speaker: "Speaker 04",
+                    text: "He picked him up in his trunk and threw the poor keeper to the ground, killing him.",
+                    prefix: "s04_147"
+                },
+                {
+                    speaker: "Speaker 07",
+                    text: "For a few moments he ate in silence.",
+                    prefix: "s07_187"
                 },
                 {
                     speaker: "Speaker 09",
@@ -264,6 +284,11 @@ const PISA_CONTENT = {
                     speaker: "Speaker 10",
                     text: "On the other hand, the mouse was very depressed on realizing the entire store of food.",
                     prefix: "s10_179"
+                },
+                {
+                    speaker: "Speaker 10",
+                    text: "After her death, she met her husband in heaven.",
+                    prefix: "s10_135"
                 }
             ]
         }
