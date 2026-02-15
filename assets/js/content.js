@@ -240,6 +240,32 @@ const PISA_CONTENT = {
             title: "Speaker Parameters Following",
             subtitle: "Comparing acoustic parameter distributions for generations from stage 1 (Speaker-Invariant) and stage 2 (Speaker-Modulated) modules against the ground truth real-NAMs.",
             image: "./assets/img/speaker_params_following_demonstration.png"
+        },
+        audios: {
+            title: "Audio Samples & Comparison",
+            subtitle: "Compare the acoustic quality and speaker identity preservation across ground truth, baseline, and PISA (Ours).",
+            items: [
+                {
+                    speaker: "Speaker 01",
+                    text: "If you do not intervene, he will destroy our entire tribe.",
+                    prefix: "s01_neilnam_IITM_909"
+                },
+                {
+                    speaker: "Speaker 02",
+                    text: "Only to add people to its tail.",
+                    prefix: "s02_nehanam_IITM_4569"
+                },
+                {
+                    speaker: "Speaker 09",
+                    text: "He enquired, What burns?",
+                    prefix: "s09_128"
+                },
+                {
+                    speaker: "Speaker 10",
+                    text: "On the other hand, the mouse was very depressed on realizing the entire store of food.",
+                    prefix: "s10_179"
+                }
+            ]
         }
     }
 };

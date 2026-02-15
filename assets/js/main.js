@@ -217,6 +217,40 @@ function renderContent() {
         }
     }
 
+    // Audio Samples comparison
+    const audiosDiv = document.querySelector('.results-audios');
+    if (audiosDiv && data.results.audios) {
+        audiosDiv.innerHTML = `
+            <h3>${data.results.audios.title}</h3>
+            <p class="table-subtitle">${data.results.audios.subtitle}</p>
+            <div class="audio-comparison-grid">
+                <div class="audio-grid-header">
+                    <div class="header-info">Speaker & Content</div>
+                    <div class="header-audio">Ground Truth</div>
+                    <div class="header-audio">Baseline (Universal)</div>
+                    <div class="header-audio">PISA (Ours)</div>
+                </div>
+                ${data.results.audios.items.map(item => `
+                    <div class="audio-row" data-aos="fade-up">
+                        <div class="audio-info">
+                            <span class="speaker-label">${item.speaker}</span>
+                            <p class="utterance-text">"${item.text}"</p>
+                        </div>
+                        <div class="audio-player-container">
+                            <audio controls src="./assets/audios/${item.prefix}_gt.wav"></audio>
+                        </div>
+                        <div class="audio-player-container">
+                            <audio controls src="./assets/audios/${item.prefix}_gen.wav"></audio>
+                        </div>
+                        <div class="audio-player-container">
+                            <audio controls src="./assets/audios/${item.prefix}_generated_e2e.wav"></audio>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+
     // Parameters Following Plot
     const paramsDiv = document.querySelector('.parameters-following');
     if (paramsDiv && data.results.parameters) {
