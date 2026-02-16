@@ -94,17 +94,49 @@ function renderContent() {
     if (abstractContent) abstractContent.textContent = data.abstract.content;
 
     // 3. Existing Methods
-    const existingMethodsTitle = document.querySelector('#existing-methods .section-title');
-    const existingMethodsContainer = document.querySelector('#existing-methods .methods-grid');
-    if (existingMethodsTitle) existingMethodsTitle.textContent = data.existingMethods.title;
-    if (existingMethodsContainer) {
-        existingMethodsContainer.innerHTML = data.existingMethods.methods.map(method => `
-            <div class="method-card" data-aos="fade-up">
-                <h3>${method.title}</h3>
-                <img src="${method.image}" alt="${method.title}">
-                <p>${method.description}</p>
+    const existingMethodsContainer = document.querySelector('#existing-methods');
+    if (existingMethodsContainer && data.existingMethods) {
+        const title = existingMethodsContainer.querySelector('.section-title');
+        if (title) title.textContent = data.existingMethods.title;
+
+        // Clear and rebuild section content
+        const oldContent = existingMethodsContainer.querySelectorAll('.section-intro, .intro-list, .methods-side-grid');
+        oldContent.forEach(el => el.remove());
+
+        // Add Intro
+        if (data.existingMethods.intro) {
+            const introP = document.createElement('p');
+            introP.className = 'section-intro';
+            introP.textContent = data.existingMethods.intro;
+            existingMethodsContainer.appendChild(introP);
+        }
+
+        // Add Points
+        if (data.existingMethods.points) {
+            const list = document.createElement('ul');
+            list.className = 'intro-list';
+            list.innerHTML = data.existingMethods.points.map(p => `<li>${p}</li>`).join('');
+            existingMethodsContainer.appendChild(list);
+        }
+
+        // Add Methods Side-by-Side Grid
+        const grid = document.createElement('div');
+        grid.className = 'methods-side-grid';
+        grid.innerHTML = data.existingMethods.methods.map((method, idx) => `
+            <div class="method-side-item ${idx % 2 === 1 ? 'reverse' : ''}" data-aos="fade-up">
+                <div class="method-media">
+                    <img src="${method.image}" alt="${method.title}">
+                </div>
+                <div class="method-detail">
+                    <span class="conf-tag">${method.conference}</span>
+                    <h3>${method.title}</h3>
+                    <ul class="method-points">
+                        ${method.description.map(pt => `<li>${pt}</li>`).join('')}
+                    </ul>
+                </div>
             </div>
         `).join('');
+        existingMethodsContainer.appendChild(grid);
     }
 
     // 4. Problems
@@ -162,7 +194,7 @@ function renderContent() {
     }
 
     // 6. Architecture & 7. Training (Dual Subsections)
-    renderDualSection('#model-architecture', data.architecture);
+    // renderDualSection('#model-architecture', data.architecture);
     renderDualSection('#training-paradigm', data.training);
 
     // 8. Results

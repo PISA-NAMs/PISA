@@ -4,25 +4,35 @@ const PISA_CONTENT = {
         subtitle: "Anonymous submission for Interspeech 2026"
     },
     abstract: {
-        title: "PISA (Physics-Informed Speaker-Aware Augmentation for Non-Audible Murmur to Speech Synthesis)",
+        title: "Physics-Informed Speaker-Aware Augmentation for Non-Audible Murmur to Speech Synthesis",
         content: "Silent communication involves complex neural coordination, where brain signals drive vocal tract articulators to flow into articulate sounds. This process breaks down in cases of vocal tract pathology. Beyond clinical scenarios, daily situations also demand alternatives to conventional speech. These constraints have motivated research into Silent Speech Interfaces (SSI), which aim to capture non-acoustic physiological signals associated with speech production and decode them into intelligible speech. Among SSI approaches, Non-Audible Murmur (NAM) microphones offer a compelling alternative by capturing tissue-conducted vibrations through a contact sensor placed behind the ear during silent articulation. Unlike other methods, NAM requires no invasive attachments, bulky imaging equipment, or controlled lighting, enabling a software-centric pathway for NAM-to-speech conversion."
     },
     existingMethods: {
         title: "Existing Methods",
+        intro: "Existing approaches for NAM-to-speech conversion consist of a two-stage pipeline during training:",
+        points: [
+            "Data Augmentation: Train a module to generate synthetic NAMs",
+            "Model training: Using both synthetic and real NAMs, a Sequence-to-Sequence (Seq2Seq) is trained to perform NAM-to-speech conversion.",
+            // "Sub-optimal modeling of fundamental frequency (F0) dynamics in quiet articulation."
+        ],
         methods: [
             {
-                title: "Aligning NAMs & speech",
-                description: "Dynamic Time Warping (DTW) is a common approach to align NAMs and speech in time",
-                image: "./assets/img/dtw.png"
-            },
-            {
                 title: "Towards Improving NAM-to-Speech Synthesis Intelligibility using Self-Supervised Speech Models",
-                description: "Existing approaches for augmentation treat NAMs as devoid of any speaker information.",
+                conference: "InterSpeech 2024",
+                description: [
+                    "For data augmentation, HiFi-GAN vocoder is first trained to generate NAMs from discrete HuBERT units. During inference, discrete units from clean speech is passed through the vocoder to synthetically generate augmented NAMs",
+                    "An NAR Seq2Seq transformer is trained on the synthetic and recorded NAM data to generate clean speech.",
+                ],
                 image: "./assets/img/existing_methods_towards_improving_nam_to_speech.png"
             },
             {
                 title: "NAM-to-Speech Conversion with Multitask-Enhanced Autoregressive Models",
-                description: "Vocoders are trained to generate NAMs from discrete HuBERT units. HuBERT units can be extracted from speech and then used to generated corresponding NAMs",
+                conference: "InterSpeech 2025",
+                description: [
+                    "Data augmentation is similar to the previous approach.",
+                    // "Discrete HuBERT units are extracted from speech to train task-specific vocoders.",
+                    "Extra decoders are attached to the AR Seq2Seq Transformer to predict text along with clean speech. This helps improves intelligibility and speech quality."
+                ],
                 image: "./assets/img/existing_methods_nam_to_speech_conversion.png"
             }
         ]
